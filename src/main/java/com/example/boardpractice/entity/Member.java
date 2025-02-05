@@ -2,9 +2,13 @@ package com.example.boardpractice.entity;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Getter
 @Table(name = "member")
+@NoArgsConstructor
 public class Member extends BaseEntity{
 
     @Id
@@ -20,6 +24,16 @@ public class Member extends BaseEntity{
 
     private Integer age;
 
+
+    public Member(String username, String password, Integer age) {
+        this.username = username;
+        this.password = password;
+        this.age = age;
+    }
+
+    public void updatePassword(String password) {
+        this.password = password;
+    }
 }
 
 // 실행시
